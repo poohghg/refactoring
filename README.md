@@ -1,0 +1,2 @@
+- 실행
+    - pnpm ts-node src/index.ts
