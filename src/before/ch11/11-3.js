@@ -6,7 +6,7 @@ function setDimension(name, value) {
   }
   if (name === 'width') {
     this._width = value;
-    return;
+
   }
 }
 
@@ -16,4 +16,4 @@ class Concert {
 }
 
 // 예제 3
-function setSwitch(on);
+function setSwitch(on) {}
