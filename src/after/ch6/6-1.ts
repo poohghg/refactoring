@@ -33,7 +33,7 @@ export function printOwing(invoice: IInvoice) {
   printBanner();
   invoice.dueDate = getDueDate();
 
-  // 지역 변수는 사용하는곳가 가까이에 선언하는 것이 좋다.
+  // 지역 변수는 사용하는곳 가까이에 선언하는 것이 좋다.
   const outstanding = calcOutstanding(invoice.orders);
   printDetails(invoice, outstanding);
 }
