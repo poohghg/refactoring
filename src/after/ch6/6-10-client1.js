@@ -1,4 +1,4 @@
-import { acquireReading, baseRate } from './6-10.js';
+import { acquireReading, baseRate } from './6-10.ts';
 
 const aReading = acquireReading();
 
