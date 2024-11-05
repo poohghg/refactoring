@@ -21,7 +21,7 @@ export class Department {
   }
 }
 
-class Person3 extends Department {
+class Person extends Department {
   constructor(
     private _name: string,
     manager: Department['_manager'],
@@ -55,7 +55,7 @@ class Person3 extends Department {
 
 const department = new Department('Tom', 1234);
 
-const person = new Person3('Tom', 'KWON', 1234);
+const person = new Person('Tom', 'KWON', 1234);
 console.log(person.name);
 console.log(person.manager);
 console.log(person.department);
