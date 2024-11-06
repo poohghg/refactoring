@@ -20,36 +20,33 @@ function acquireData(input: string) {
   return result;
 }
 
+interface City {
+  city: string;
+  phone: string;
+}
+
 function acquireData2(data: string) {
   const isEmptyTrimmed = (line: string) => line.trim() === '';
 
-  const isIndia = (value: string) => value === 'India';
+  const addIndiaCounty = (result: City[], line: string): City[] => {
+    const record = line.split(',');
+    const country = record[1].trim();
+
+    if (country === 'India') {
+      result.push({
+        city: record[0].trim(),
+        phone: record[2].trim(),
+      });
+    }
+    
+    return result;
+  };
 
   return data
     .split('\n')
     .splice(1)
     .filter((line) => !isEmptyTrimmed(line))
-    .reduce(
-      (result, line) => {
-        const record = line.split(',');
-        const country = record[1].trim();
-
-        if (isIndia(country)) {
-          return result.concat({
-            city: record[0].trim(),
-            phone: record[2].trim(),
-          });
-        }
-
-        return result;
-      },
-      [] as { city: string; phone: string }[],
-    );
-  // rudece 변경가능
-  // .map((line) => {
-  //   const record = line.split(',');
-  //   return { city: record[0].trim(), phone: record[2].trim() };
-  // });
+    .reduce<City[]>((result, line) => addIndiaCounty(result, line), []);
 }
 
 const input = `office, country, telephone\n
