@@ -26,14 +26,14 @@ class Priority {
   static High = new Priority('high');
   static Rush = new Priority('rush');
 
-  private static readonly PrioritiesGrade: Record<TPriority, number> = {
+  private static readonly prioritiesGrade: Record<TPriority, number> = {
     low: 0,
     normal: 1,
     high: 2,
     rush: 3,
   };
 
-  private gradeIndex: number = Priority.PrioritiesGrade[this.name];
+  private gradeIndex: number = Priority.prioritiesGrade[this.name];
 
   private constructor(private name: TPriority) {}
 
